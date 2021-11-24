@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.social-icon:not(:hover)  .social-svg-mask {
+  fill: #495057 !important;
+}
+
+
+.sidebar-active {
+font-size : 2rem;
+transition: all 0.3s;
+
+}
+
+
+@media  screen and (min-width: 600px) {
+  #contentPane {
+    width: 80%;
+    float: right;
+  }
+  #sidePane {
+    width: 20%;
+    position: fixed;
+  }
+}
+
+
+@media not screen and (min-width: 600px) {
+  #contentPane {
+    width: 100%;
+  }
+  #sidePane {
+    width: 0%;
+    display: none;
+  }
+ 
+}
