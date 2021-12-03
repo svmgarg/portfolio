@@ -17,7 +17,7 @@ constructor(props){
 }
     render() {
         const sideBarStyle = {
-            backgroundColor: '#bd5d38',
+            backgroundColor: '#7b7d7f',
             height: '100vh',
             width: '100%'
         };
@@ -35,13 +35,9 @@ constructor(props){
                 <Container>
                     <Row style={{ height: '10vh' }} />
                     <Row style={{ height: '40vh', justifyContent: 'Center', alignItems: 'Center', pointerEvents: 'none' }} >
-                        {/* <ReactRoundedImage style={{maxHeight: '90%', maxWidth : '90%'}}
-                            image="https://kelvinwilliams.dev/img/profile.png"
-                            roundedColor="#cc7d62"
-                            hoverColor="#cc7d62"
-                        /> */}
+                       
 
-                        <Image  style={{ maxHeight: '75%', maxWidth: '75%', padding : '0.6rem', backgroundColor: '#cc7d62'}} src= "https://avatars.githubusercontent.com/u/13872405" roundedCircle>
+                        <Image  style={{ maxHeight: '75%', maxWidth: '75%', padding : '0.6rem', backgroundColor: '#49575d'}} src= "https://avatars.githubusercontent.com/u/13872405" roundedCircle>
 
                         </Image>
                     </Row>

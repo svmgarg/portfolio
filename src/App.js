@@ -17,20 +17,6 @@ class App extends React.Component {
 
   render() {
 
-    // var isMobileDevice = window.innerWidth <= 600;
-    // var sideBarStyle = {}, contentPaneStyle = {};
-
-    // if (isMobileDevice) {
-    //   sideBarStyle = { width: '0%', display: 'none' };
-    //   contentPaneStyle = { width: '100%' };
-
-    // } else {
-    //   sideBarStyle = { width: '20%', position: 'fixed' };
-    //   contentPaneStyle = { width: '80%', float: 'right' };
-    // }
-
-
-
     return (
       <div onScroll={this.onScroll} className='app' >
 
