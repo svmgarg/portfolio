@@ -41,7 +41,7 @@ constructor(props){
                             hoverColor="#cc7d62"
                         /> */}
 
-                        <Image  style={{ maxHeight: '75%', maxWidth: '75%', padding : '0.6rem', backgroundColor: '#cc7d62'}} src= "https://kelvinwilliams.dev/img/profile.png" roundedCircle>
+                        <Image  style={{ maxHeight: '75%', maxWidth: '75%', padding : '0.6rem', backgroundColor: '#cc7d62'}} src= "https://avatars.githubusercontent.com/u/13872405" roundedCircle>
 
                         </Image>
                     </Row>
