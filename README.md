@@ -21,7 +21,7 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 ### `npm run build` fails to minify
-Build the app and it will deploy it to githu pages
+Build the app and it will deploy it to github pages
 
 
 Currently Deployed on - https://svmgarg.github.io/portfolio/
