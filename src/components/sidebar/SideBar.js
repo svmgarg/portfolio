@@ -17,7 +17,7 @@ constructor(props){
 }
     render() {
         const sideBarStyle = {
-            backgroundColor: '#7b7d7f',
+            backgroundColor: '#3e7799',
             height: '100vh',
             width: '100%'
         };
