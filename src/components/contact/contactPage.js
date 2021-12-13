@@ -9,25 +9,25 @@ class ContactPage extends React.Component {
     message: ""
   };
 
-  onSubmit (){
+  onSubmit() {
     console.log(this.state.message);
     let message = this.state.message;
-    window.location.href = 'mailto:svmgarg@gmail.com?subject=Hi Shivam&body='+message;
+    window.location.href = 'mailto:svmgarg@gmail.com?subject=Hi Shivam&body=' + message;
 
   };
 
 
-  messageChanged  (e) {
+  messageChanged(e) {
     let value = e.target.value;
     console.log("value is :::" + e.target.value + ":::");
-    if( value !== undefined && value !== null && value.length > 0){
-      if(value.length > 400){
+    if (value !== undefined && value !== null && value.length > 0) {
+      if (value.length > 400) {
         value = value.substring(0, 400);
       }
     }
     this.setState({ message: value });
     console.log(this.state.message);
-    
+
   };
 
 
@@ -51,7 +51,7 @@ class ContactPage extends React.Component {
     contactMeConditions.forEach(condition => {
       contactMeConditionsElements.push(React.createElement('li', {}, condition));
     });
-    var self = this ;
+    var self = this;
 
 
     return (
@@ -72,10 +72,10 @@ class ContactPage extends React.Component {
               React.createElement(RB.Form, {}, [
                 React.createElement(RB.Form.Group, { style: { fontSize: '1.2rem' } }, [
                   React.createElement(RB.Form.Label, {}, "Your Message"),
-                  React.createElement(RB.Form.Control, { as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message,  onChange : self.messageChanged.bind(self)   }),
-                  React.createElement(RB.Form.Label, { style : { fontSize: '0.8rem', float :'right' } }, "("+ (this.state.message !=null ? this.state.message.length : 0)  +" of 400)"),
+                  React.createElement(RB.Form.Control, { as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
+                  React.createElement(RB.Form.Label, { style: { fontSize: '0.8rem', float: 'right' } }, "(" + (this.state.message != null ? this.state.message.length : 0) + " of 400)"),
                 ]),
-                React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit',  onClick : self.onSubmit.bind(self) }, "Send")),
+                React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self) }, "Send")),
               ])
             )
           ]

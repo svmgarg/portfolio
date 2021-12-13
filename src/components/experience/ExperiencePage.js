@@ -14,12 +14,12 @@ class ExperiencePage extends React.Component {
     };
 
     const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
-    
+
 
     let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "experiencePageTracker" });
 
     let details = this.getExperienceDetails();
-    
+
     let experienceDetails = React.createElement(Container, {}, [
       React.createElement(Row, { style: { marginBottom: '4vh' } }, React.createElement('span', { style: headerTextStyle }, 'Experience')),
       React.createElement(ExperienceDetails, { details: details })

@@ -19,7 +19,7 @@ class SkillsPage extends React.Component {
     let headerTag = React.createElement('span', { style: headerTextStyle }, 'Skills');
     let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle }, 'Programming Language and Tools');
     let iconList = this.getIconList();
-  
+
 
     return (
 
@@ -29,9 +29,9 @@ class SkillsPage extends React.Component {
           React.createElement(Container, {}, [
             React.createElement(Row, { style: { marginBottom: '4vh' } }, headerTag),
             React.createElement(Row, { style: { marginBottom: '4vh' } },
-            React.createElement(Container, {},  [
-                React.createElement(Row, {style: { marginBottom: '4vh' }} , programmingLanguageAndToolsTag),
-                React.createElement(Row, {} , iconList ),
+              React.createElement(Container, {}, [
+                React.createElement(Row, { style: { marginBottom: '4vh' } }, programmingLanguageAndToolsTag),
+                React.createElement(Row, {}, iconList),
               ])
             )
           ]
@@ -45,29 +45,29 @@ class SkillsPage extends React.Component {
 
 
 
-  getIconList(){
+  getIconList() {
     let iconSize = '6em';
     let iconDetails = [
-      {name : 'Java', iconName : Icons.DiJava},
-      {name : 'GIT', iconName : Icons.DiGit},
-      {name : 'Docker', iconName : Icons.DiDocker},
-      {name : 'Javascript', iconName : Icons.DiJavascript},
-      {name : 'React', iconName : Icons.DiReact}
+      { name: 'Java', iconName: Icons.DiJava },
+      { name: 'GIT', iconName: Icons.DiGit },
+      { name: 'Docker', iconName: Icons.DiDocker },
+      { name: 'Javascript', iconName: Icons.DiJavascript },
+      { name: 'React', iconName: Icons.DiReact }
     ];
 
-    
+
     let iconList = [];
-    iconDetails.forEach(iconDetail => 
-      iconList.push( 
+    iconDetails.forEach(iconDetail =>
+      iconList.push(
         React.createElement('div', { style: { margin: '2vh' } }, [
-          React.createElement(iconDetail.iconName, {size:iconSize}),
-          React.createElement('p', { style: {fontSize: '1.5rem', textAlign : 'center'}}, iconDetail.name)
-        ])  
+          React.createElement(iconDetail.iconName, { size: iconSize }),
+          React.createElement('p', { style: { fontSize: '1.5rem', textAlign: 'center' } }, iconDetail.name)
+        ])
       ));
-        
-    
+
+
     return iconList;
-    
+
   }
 
 }

@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import { Container } from 'react-bootstrap'
 import SideBar from './components/sidebar/SideBar'
 import AboutPage from './components/about/AboutPage'
 import ExperiencePage from './components/experience/ExperiencePage';
@@ -17,35 +16,21 @@ class App extends React.Component {
 
   render() {
 
-    return (
-      <div onScroll={this.onScroll} className='app' >
+    return (React.createElement('div', { onScroll: this.onScroll, className: 'app' },
 
-        <Container fluid style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-
-          <div id="sidePane"  >
-            <SideBar />
-          </div>
-
-          <div id="contentPane" >
-            <AboutPage />
-            <hr />
-
-            <ExperiencePage />
-            <hr />
-
-            <SkillsPage />
-            <hr />
-
-            <ContactPage />
-          
-
-          </div>
-        </Container>
-
-      </div>
-    );
+      React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' } },
+        [
+          React.createElement('div', { id: "sidePane" }, React.createElement(SideBar)),
+          React.createElement('div', { id: "contentPane" },
+            [
+              React.createElement(AboutPage),
+              React.createElement(ExperiencePage),
+              React.createElement(SkillsPage),
+              React.createElement(ContactPage)
+            ])
+        ])
+    ));
   };
-
 
 
 
