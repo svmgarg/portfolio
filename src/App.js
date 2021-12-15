@@ -21,7 +21,8 @@ class App extends React.Component {
       React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' } },
         [
           React.createElement('div', { id: "sidePane" }, React.createElement(SideBar)),
-          React.createElement('div', { id: "contentPane" },
+          React.createElement('div', { id: "contentPane", style: {  "backgroundColor" : "antiquewhite"
+          } },
             [
               React.createElement(AboutPage),
               React.createElement('hr'),

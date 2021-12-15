@@ -72,7 +72,7 @@ class ContactPage extends React.Component {
               React.createElement(RB.Form, {}, [
                 React.createElement(RB.Form.Group, { style: { fontSize: '1.2rem' } }, [
                   React.createElement(RB.Form.Label, {}, "Your Message"),
-                  React.createElement(RB.Form.Control, { as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
+                  React.createElement(RB.Form.Control, {  style: {  "backgroundColor" : "aliceblue"}, as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
                   React.createElement(RB.Form.Label, { style: { fontSize: '0.8rem', float: 'right' } }, "(" + (this.state.message != null ? this.state.message.length : 0) + " of 400)"),
                 ]),
                 React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self) }, "Send")),
