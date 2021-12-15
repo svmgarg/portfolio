@@ -24,8 +24,11 @@ class App extends React.Component {
           React.createElement('div', { id: "contentPane" },
             [
               React.createElement(AboutPage),
+              React.createElement('hr'),
               React.createElement(ExperiencePage),
+              React.createElement('hr'),
               React.createElement(SkillsPage),
+              React.createElement('hr'),
               React.createElement(ContactPage)
             ])
         ])
