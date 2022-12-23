@@ -85,13 +85,17 @@ class AboutPage extends React.Component {
 
 
   getOverviewDetails() {
-    let details = [
-      'Currently working as a backend developer (Java and Spring microservice) in Oracle.',
-      'Currently holding 6 years of experience in IT industry',
-      'Available for freelance opportunities.',
-      'Enthusiastic about Frontend development, which is why I started this portfolio',
-    ];
+    let currentExperience = this.experienceCalculator();
+    let details = [];
+    details.push('Currently working as a Senior Software Engineer in Oracle.');
+    details.push('Currently holding {experience} of experience in IT industry'.replace('{experience}', currentExperience));
+    details.push('Enthusiastic about Frontend development, which is why I started this portfolio');
+
     return details;
+  }
+
+  experienceCalculator(){
+    return '7 years and 6 months';
   }
 
 }
