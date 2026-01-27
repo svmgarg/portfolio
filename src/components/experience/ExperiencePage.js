@@ -8,26 +8,21 @@ class ExperiencePage extends React.Component {
 
 
   render() {
-    const experiencePageStyle = {
-      minHeight: '100vh',
-      width: '100%',
-      padding: '4%'
-    };
-
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
+    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
 
 
-    let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "experiencePageTracker" });
+    let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "experiencePageTracker", key: "experiencePageTracker" });
 
     let details = this.getExperienceDetails();
 
-    let experienceDetails = React.createElement(Container, {}, [
-      React.createElement(Row, { style: { marginBottom: '4vh' } }, React.createElement('span', { style: headerTextStyle }, content.experience.heading)),
-      React.createElement(ExperienceDetails, { details: details })
+    let experienceDetails = React.createElement(Container, { key: 'experience-container' }, [
+      React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'experience-header-row' }, 
+        React.createElement('span', { style: headerTextStyle, key: 'experience-header' }, content.experience.heading)),
+      React.createElement(ExperienceDetails, { details: details, key: 'experience-details' })
     ])
 
     return (
-      React.createElement('div', { style: experiencePageStyle },
+      React.createElement('div', { className: 'page-section', id: 'experiencePageSection', key: 'experiencePageSection' },
         [
           headingTracker,
           experienceDetails

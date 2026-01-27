@@ -4,5 +4,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
   font-family: 'Oswald', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 

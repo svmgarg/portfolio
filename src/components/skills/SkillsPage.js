@@ -9,30 +9,24 @@ class SkillsPage extends React.Component {
 
 
   render() {
-    const skillsPageStyle = {
-      minHeight: '100vh',
-      width: '100%',
-      padding: '4%'
-    };
-
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
-    const subheadingStyle = { fontSize: '2rem', marginBottom: '0vh' };
-    let headerTag = React.createElement('span', { style: headerTextStyle }, content.skills.heading);
-    let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle }, content.skills.subheading);
+    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
+    const subheadingStyle = { fontSize: '2rem', marginBottom: '2rem' };
+    let headerTag = React.createElement('span', { style: headerTextStyle, key: 'skills-header' }, content.skills.heading);
+    let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle, key: 'skills-subheader' }, content.skills.subheading);
     let iconList = this.getIconList();
 
 
     return (
 
-      React.createElement('div', { style: skillsPageStyle },
+      React.createElement('div', { className: 'page-section', id: 'skillsPageSection', key: 'skillsPageSection' },
         [
-          React.createElement('div', { className: 'scroll-tracker', id: 'skillsPageTracker' }),
-          React.createElement(Container, {}, [
-            React.createElement(Row, { style: { marginBottom: '4vh' } }, headerTag),
-            React.createElement(Row, { style: { marginBottom: '4vh' } },
-              React.createElement(Container, {}, [
-                React.createElement(Row, { style: { marginBottom: '4vh' } }, programmingLanguageAndToolsTag),
-                React.createElement(Row, {}, iconList),
+          React.createElement('div', { className: 'scroll-tracker', id: 'skillsPageTracker', key: 'skillsPageTracker' }),
+          React.createElement(Container, { key: 'skills-container' }, [
+            React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-header-row' }, headerTag),
+            React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-content' },
+              React.createElement(Container, { key: 'skills-inner-container' }, [
+                React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'skills-subheader-row' }, programmingLanguageAndToolsTag),
+                React.createElement(Row, { key: 'skills-icons-row', style: { justifyContent: 'center' } }, iconList),
               ])
             )
           ]
