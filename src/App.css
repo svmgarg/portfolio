@@ -41,33 +41,27 @@
   fill: #495057 !important;
 }
 
-
-.sidebar-active {
-font-size : 2rem;
-transition: all 0.3s;
-
+/* Navbar styles */
+#contentPane {
+  width: 100%;
+  padding-top: 56px; /* Height of navbar to prevent content from hiding behind fixed navbar */
 }
 
-
-@media  screen and (min-width: 600px) {
-  #contentPane {
-    width: 80%;
-    float: right;
-  }
-  #sidePane {
-    width: 20%;
-    position: fixed;
-  }
+.navbar {
+  z-index: 1030;
 }
 
+.navbar .nav-link.active {
+  font-weight: bold;
+  color: #bd5d38 !important;
+  border-bottom: 2px solid #bd5d38;
+}
 
-@media not screen and (min-width: 600px) {
-  #contentPane {
-    width: 100%;
-  }
-  #sidePane {
-    width: 0%;
-    display: none;
-  }
- 
+.navbar .nav-link {
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+  color: #bd5d38 !important;
 }

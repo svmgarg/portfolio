@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import SideBar from './components/sidebar/SideBar'
+import TopNavBar from './components/navbar/TopNavBar'
 import AboutPage from './components/about/AboutPage'
 import ExperiencePage from './components/experience/ExperiencePage';
 import SkillsPage from './components/skills/SkillsPage';
@@ -20,7 +20,7 @@ class App extends React.Component {
 
       React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' } },
         [
-          React.createElement('div', { id: "sidePane" }, React.createElement(SideBar)),
+          React.createElement(TopNavBar),
           React.createElement('div', { id: "contentPane", style: {  "backgroundColor" : "antiquewhite"
           } },
             [
