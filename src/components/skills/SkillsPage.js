@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import * as Icons from "react-icons/di";
+import content from '../../content';
 
 
 
@@ -16,8 +17,8 @@ class SkillsPage extends React.Component {
 
     const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
     const subheadingStyle = { fontSize: '2rem', marginBottom: '0vh' };
-    let headerTag = React.createElement('span', { style: headerTextStyle }, 'Skills');
-    let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle }, 'Programming Language and Tools');
+    let headerTag = React.createElement('span', { style: headerTextStyle }, content.skills.heading);
+    let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle }, content.skills.subheading);
     let iconList = this.getIconList();
 
 

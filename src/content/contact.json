@@ -1,0 +1,13 @@
+{
+  "heading": "Contact",
+  "subheading": "Contact me if you",
+  "conditions": [
+    "need to hire a versatile freelance software developer.",
+    "have any questions and want to find out more about the services I provide.",
+    "just want to say 'hello'."
+  ],
+  "formLabel": "Your Message",
+  "buttonLabel": "Send",
+  "characterCountLabel": "({count} of 400)",
+  "emailSubject": "Hi Shivam"
+}

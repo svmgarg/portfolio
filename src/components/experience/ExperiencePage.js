@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import ExperienceDetails from './ExperienceDetails'
+import content from '../../content';
 
 class ExperiencePage extends React.Component {
 
@@ -21,7 +22,7 @@ class ExperiencePage extends React.Component {
     let details = this.getExperienceDetails();
 
     let experienceDetails = React.createElement(Container, {}, [
-      React.createElement(Row, { style: { marginBottom: '4vh' } }, React.createElement('span', { style: headerTextStyle }, 'Experience')),
+      React.createElement(Row, { style: { marginBottom: '4vh' } }, React.createElement('span', { style: headerTextStyle }, content.experience.heading)),
       React.createElement(ExperienceDetails, { details: details })
     ])
 

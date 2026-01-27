@@ -1,6 +1,7 @@
 import React from 'react';
 import * as RB from 'react-bootstrap';
 import { Container, Row, Button } from 'react-bootstrap';
+import content from '../../content';
 
 
 
@@ -12,7 +13,7 @@ class ContactPage extends React.Component {
   onSubmit() {
     console.log(this.state.message);
     let message = this.state.message;
-    window.location.href = 'mailto:svmgarg@gmail.com?subject=Hi Shivam&body=' + message;
+    window.location.href = 'mailto:' + content.home.contactEmail + '?subject=' + content.contact.emailSubject + '&body=' + message;
 
   };
 
@@ -41,12 +42,9 @@ class ContactPage extends React.Component {
 
     const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
     const subheadingStyle = { fontSize: '1.4rem', marginBottom: '0vh' };
-    let headerTag = React.createElement('span', { style: headerTextStyle }, 'Contact');
-    let contactMeifyou = React.createElement('span', { style: subheadingStyle }, 'Contact me if you');
-    let contactMeConditions = ["need to hire a versatile freelance software developer.",
-      "have any questions and want to find out more about the services I provide.",
-      "just want to say 'hello'."
-    ];
+    let headerTag = React.createElement('span', { style: headerTextStyle }, content.contact.heading);
+    let contactMeifyou = React.createElement('span', { style: subheadingStyle }, content.contact.subheading);
+    let contactMeConditions = content.contact.conditions;
     let contactMeConditionsElements = [];
     contactMeConditions.forEach(condition => {
       contactMeConditionsElements.push(React.createElement('li', {}, condition));
@@ -71,11 +69,11 @@ class ContactPage extends React.Component {
             React.createElement(Row, { style: { marginBottom: '3vh' } },
               React.createElement(RB.Form, {}, [
                 React.createElement(RB.Form.Group, { style: { fontSize: '1.2rem' } }, [
-                  React.createElement(RB.Form.Label, {}, "Your Message"),
+                  React.createElement(RB.Form.Label, {}, content.contact.formLabel),
                   React.createElement(RB.Form.Control, {  style: {  "backgroundColor" : "aliceblue"}, as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
-                  React.createElement(RB.Form.Label, { style: { fontSize: '0.8rem', float: 'right' } }, "(" + (this.state.message != null ? this.state.message.length : 0) + " of 400)"),
+                  React.createElement(RB.Form.Label, { style: { fontSize: '0.8rem', float: 'right' } }, content.contact.characterCountLabel.replace('{count}', this.state.message != null ? this.state.message.length : 0)),
                 ]),
-                React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self) }, "Send")),
+                React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self) }, content.contact.buttonLabel)),
               ])
             )
           ]

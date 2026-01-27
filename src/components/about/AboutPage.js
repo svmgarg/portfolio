@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, SafeAnchor } from 'react-bootstrap';
 import { SocialIcon } from 'react-social-icons';
+import content from '../../content';
 
 class AboutPage extends React.Component {
 
@@ -17,17 +18,17 @@ class AboutPage extends React.Component {
 
     const headerTextStyle = { fontSize: '5rem', marginBottom: '0vh' };
     const headerTextStyle2 = { color: '#bd5d38', marginBottom: '0vh', marginLeft: '2vw' };
-    const contactEmail = 'svmgarg@gmail.com';
-    const mailToSubject = '';
+    const contactEmail = content.home.contactEmail;
+    const mailToSubject = content.home.mailToSubject;
     const mailToLink = 'mailto:' + contactEmail + '?subject=' + mailToSubject;
-    const firstName = 'Shivam';
-    const lastName = 'Garg';
-    const resumeLink = 'https://drive.google.com/file/d/0B_L5PyR_-ntmdGpxMDFaN0FRRW1hQzFiaGhXWl9wbHFYcHBv/view?usp=sharing&resourcekey=0-YR5VAPGLuBP4lUW-oRliKA';
+    const firstName = content.home.firstName;
+    const lastName = content.home.lastName;
+    const resumeLink = content.home.resumeLink;
 
-    const linkedinProfileUrl = "https://www.linkedin.com/in/svmgarg/";
-    const stackoverFlowUrl = "https://stackoverflow.com/users/5474413/shivam";
-    const telegramLink = "https://telegram.me/svmgarg";
-    const githubLink = "https://github.com/svmgarg/";
+    const linkedinProfileUrl = content.home.socialLinks.linkedin;
+    const stackoverFlowUrl = content.home.socialLinks.stackoverflow;
+    const telegramLink = content.home.socialLinks.telegram;
+    const githubLink = content.home.socialLinks.github;
 
 
     let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "aboutPageTracker" });
@@ -48,12 +49,12 @@ class AboutPage extends React.Component {
     ]);
 
     let email_row = React.createElement(Row, {}, [
-      React.createElement('span', {}, 'Contact Email  \u00a0-\u00a0\u00a0'),
+      React.createElement('span', {}, content.home.contactEmailLabel),
       React.createElement('span', {}, React.createElement(SafeAnchor, { href: mailToLink }, contactEmail.toUpperCase())),
     ]);
 
     let resume_link_row = React.createElement(Row, { style: { marginBottom: '10vh' } }, [
-      React.createElement('span', {}, React.createElement(SafeAnchor, { href: resumeLink, target: "_blank" }, 'View PDF Resume')),
+      React.createElement('span', {}, React.createElement(SafeAnchor, { href: resumeLink, target: "_blank" }, content.home.resumeLinkLabel)),
     ]);
 
     let overviewDetails = this.getOverviewDetails();
@@ -65,7 +66,7 @@ class AboutPage extends React.Component {
 
 
     let email_anchor = React.createElement(SafeAnchor, { href: mailToLink }, contactEmail);
-    let contact_me_row = React.createElement(Row, { style: { marginTop: '2vh' } }, React.createElement('li', {}, React.createElement('span', {}, ['Contact me via ', email_anchor, ' or via the Contact form below'])));
+    let contact_me_row = React.createElement(Row, { style: { marginTop: '2vh' } }, React.createElement('li', {}, React.createElement('span', {}, [content.home.contactMePrefix, email_anchor, content.home.contactMeSuffix])));
     overviewDetails_rows.push(contact_me_row);
 
     return (
@@ -87,15 +88,14 @@ class AboutPage extends React.Component {
   getOverviewDetails() {
     let currentExperience = this.experienceCalculator();
     let details = [];
-    details.push('I am currently working as a Senior Software Engineer in Oracle.');
-    details.push('I currently have {experience} of experience in the IT industry'.replace('{experience}', currentExperience));
-    details.push('Enthusiastic about Frontend development, which is why I started this portfolio');
-
+    content.home.overviewDetails.forEach(detail => {
+      details.push(detail.replace('{experience}', currentExperience));
+    });
     return details;
   }
 
   experienceCalculator(){
-    return '7 years and 6 months';
+    return content.home.currentExperience;
   }
 
 }
