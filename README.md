@@ -1,5 +1,35 @@
-# Getting Started with Your Portolio
+# Getting Started with Your Portfolio
 
+## Editing Content
+
+All user-facing text content is stored in JSON files located in the `src/content/` directory. You can easily customize the portfolio by editing these files without touching any React code.
+
+### Content Files
+
+- **`src/content/site.json`** - Global navigation labels (About, Experience, Skills, Contact)
+- **`src/content/home.json`** - Personal information, contact details, social links, and overview text
+- **`src/content/experience.json`** - Experience section heading
+- **`src/content/skills.json`** - Skills section headings
+- **`src/content/contact.json`** - Contact form labels and messages
+
+### How to Update Content
+
+1. Navigate to the `src/content/` directory
+2. Open the relevant JSON file for the section you want to edit
+3. Modify the text values (keep the JSON structure intact)
+4. Save the file
+5. The changes will appear automatically in development mode, or rebuild for production
+
+### Example
+
+To change your name, edit `src/content/home.json`:
+```json
+{
+  "firstName": "YourFirstName",
+  "lastName": "YourLastName",
+  ...
+}
+```
 
 ## Available Scripts
 

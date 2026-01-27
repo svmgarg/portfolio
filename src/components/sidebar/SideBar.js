@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Image } from 'react-bootstrap'
+import content from '../../content';
 
 class SideBar extends React.Component {
 
@@ -22,12 +23,6 @@ class SideBar extends React.Component {
             width: '100%'
         };
 
-        const textStyle = {
-            backgroundColor: '#bd5d38',
-            height: '100vh',
-            width: '100%'
-        };
-
         const alignCenterstyle = { justifyContent: 'Center', alignItems: 'Center' };
 
         return (
@@ -37,21 +32,21 @@ class SideBar extends React.Component {
                     <Row style={{ height: '40vh', justifyContent: 'Center', alignItems: 'Center', pointerEvents: 'none' }} >
 
 
-                        <Image style={{ maxHeight: '75%', maxWidth: '75%', padding: '0.6rem', backgroundColor: '#49575d' }} src="https://avatars.githubusercontent.com/u/13872405" roundedCircle>
+                        <Image style={{ maxHeight: '75%', maxWidth: '75%', padding: '0.6rem', backgroundColor: '#49575d' }} src={content.home.profileImage} roundedCircle>
 
                         </Image>
                     </Row>
 
-                    <Row className="scroll-sidebar sidebar-active" id="aboutPage" style={{ ...alignCenterstyle }} > <span>ABOUT</span></Row>
+                    <Row className="scroll-sidebar sidebar-active" id="aboutPage" style={{ ...alignCenterstyle }} > <span>{content.site.navigation.about}</span></Row>
                     <Row style={{ height: '2vh' }} />
 
-                    <Row className="scroll-sidebar" id="experiencePage" style={alignCenterstyle} > <span>EXPERIENCE</span></Row>
+                    <Row className="scroll-sidebar" id="experiencePage" style={alignCenterstyle} > <span>{content.site.navigation.experience}</span></Row>
                     <Row style={{ height: '2vh' }} />
 
-                    <Row className="scroll-sidebar" id="skillsPage" style={alignCenterstyle} > <span>SKILLS</span></Row>
+                    <Row className="scroll-sidebar" id="skillsPage" style={alignCenterstyle} > <span>{content.site.navigation.skills}</span></Row>
                     <Row style={{ height: '2vh' }} />
 
-                    <Row className="scroll-sidebar" id="contactPage" style={alignCenterstyle} > <span>CONTACT</span></Row>
+                    <Row className="scroll-sidebar" id="contactPage" style={alignCenterstyle} > <span>{content.site.navigation.contact}</span></Row>
                     <Row style={{ height: '2vh' }} />
 
                 </Container>
