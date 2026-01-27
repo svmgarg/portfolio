@@ -9,9 +9,7 @@ class SkillsPage extends React.Component {
 
 
   render() {
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
     const subheadingStyle = { fontSize: '2rem', marginBottom: '2rem' };
-    let headerTag = React.createElement('span', { style: headerTextStyle, key: 'skills-header' }, content.skills.heading);
     let programmingLanguageAndToolsTag = React.createElement('span', { style: subheadingStyle, key: 'skills-subheader' }, content.skills.subheading);
     let iconList = this.getIconList();
 
@@ -21,15 +19,13 @@ class SkillsPage extends React.Component {
       React.createElement('div', { className: 'page-section', id: 'skillsPageSection', key: 'skillsPageSection' },
         [
           React.createElement('div', { className: 'scroll-tracker', id: 'skillsPageTracker', key: 'skillsPageTracker' }),
-          React.createElement(Container, { key: 'skills-container' }, [
-            React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-header-row' }, headerTag),
+          React.createElement(Container, { key: 'skills-container' },
             React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-content' },
               React.createElement(Container, { key: 'skills-inner-container' }, [
                 React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'skills-subheader-row' }, programmingLanguageAndToolsTag),
                 React.createElement(Row, { key: 'skills-icons-row', style: { justifyContent: 'center' } }, iconList),
               ])
             )
-          ]
           )
 
         ]

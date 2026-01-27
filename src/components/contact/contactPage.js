@@ -34,9 +34,7 @@ class ContactPage extends React.Component {
 
 
   render() {
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
     const subheadingStyle = { fontSize: '1.4rem', marginBottom: '1rem' };
-    let headerTag = React.createElement('span', { style: headerTextStyle, key: 'contact-header' }, content.contact.heading);
     let contactMeifyou = React.createElement('span', { style: subheadingStyle, key: 'contact-subheader' }, content.contact.subheading);
     let contactMeConditions = content.contact.conditions;
     let contactMeConditionsElements = [];
@@ -52,7 +50,6 @@ class ContactPage extends React.Component {
         [
           React.createElement('div', { className: 'scroll-tracker', id: 'contactPageTracker', key: 'contactPageTracker' }),
           React.createElement(Container, { key: 'contact-container' }, [
-            React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-header-row' }, headerTag),
             React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-intro' },
               React.createElement(Container, { key: 'contact-intro-container' }, [
                 React.createElement(Row, { style: { marginBottom: '1rem' }, key: 'contact-intro-header' }, contactMeifyou),

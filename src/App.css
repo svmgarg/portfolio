@@ -42,9 +42,15 @@
 }
 
 /* Navbar styles */
+.navbar-spacer {
+  height: 56px;
+  width: 100%;
+}
+
 #contentPane {
   width: 100%;
-  padding-top: 0; /* Remove padding as we'll use scroll-margin on sections */
+  padding-top: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .navbar {
@@ -80,12 +86,13 @@
 .page-section {
   position: relative;
   scroll-margin-top: 56px;
-  padding-top: 56px;
+  padding-top: 0;
   min-height: 100vh;
   width: 100%;
   padding-left: 4%;
   padding-right: 4%;
   padding-bottom: 4%;
+  overflow-x: hidden; /* Prevent horizontal scroll in sections */
 }
 
 /* HR separator styles */
