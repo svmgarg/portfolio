@@ -1,0 +1,23 @@
+{
+  "firstName": "Shivam",
+  "lastName": "Garg",
+  "contactEmail": "svmgarg@gmail.com",
+  "mailToSubject": "",
+  "resumeLink": "https://drive.google.com/file/d/0B_L5PyR_-ntmdGpxMDFaN0FRRW1hQzFiaGhXWl9wbHFYcHBv/view?usp=sharing&resourcekey=0-YR5VAPGLuBP4lUW-oRliKA",
+  "profileImage": "https://avatars.githubusercontent.com/u/13872405",
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/svmgarg/",
+    "stackoverflow": "https://stackoverflow.com/users/5474413/shivam",
+    "telegram": "https://telegram.me/svmgarg",
+    "github": "https://github.com/svmgarg/"
+  },
+  "contactEmailLabel": "Contact Email  \u00a0-\u00a0\u00a0",
+  "resumeLinkLabel": "View PDF Resume",
+  "overviewDetails": [
+    "I am currently working as a Senior Software Engineer in Oracle.",
+    "I currently have {experience} of experience in the IT industry",
+    "Enthusiastic about Frontend development, which is why I started this portfolio"
+  ],
+  "currentExperience": "7 years and 6 months",
+  "contactMeText": "Contact me via {email} or via the Contact form below"
+}
