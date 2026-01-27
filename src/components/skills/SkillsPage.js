@@ -52,11 +52,11 @@ class SkillsPage extends React.Component {
 
 
     let iconList = [];
-    iconDetails.forEach(iconDetail =>
+    iconDetails.forEach((iconDetail, index) =>
       iconList.push(
-        React.createElement('div', { style: { margin: '2vh' } }, [
-          React.createElement(iconDetail.iconName, { size: iconSize }),
-          React.createElement('p', { style: { fontSize: '1.5rem', textAlign: 'center' } }, iconDetail.name)
+        React.createElement('div', { style: { margin: '2vh' }, key: `skill-${index}` }, [
+          React.createElement(iconDetail.iconName, { size: iconSize, key: `skill-icon-${index}` }),
+          React.createElement('p', { style: { fontSize: '1.5rem', textAlign: 'center' }, key: `skill-name-${index}` }, iconDetail.name)
         ])
       ));
 

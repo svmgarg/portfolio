@@ -87,3 +87,27 @@
   padding-right: 4%;
   padding-bottom: 4%;
 }
+
+/* HR separator styles */
+hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #bd5d38, transparent);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    padding: 0.3rem 0.8rem !important;
+  }
+}
