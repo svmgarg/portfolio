@@ -19,5 +19,6 @@
     "Enthusiastic about Frontend development, which is why I started this portfolio"
   ],
   "currentExperience": "7 years and 6 months",
-  "contactMeText": "Contact me via {email} or via the Contact form below"
+  "contactMePrefix": "Contact me via ",
+  "contactMeSuffix": " or via the Contact form below"
 }

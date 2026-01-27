@@ -66,7 +66,7 @@ class AboutPage extends React.Component {
 
 
     let email_anchor = React.createElement(SafeAnchor, { href: mailToLink }, contactEmail);
-    let contact_me_row = React.createElement(Row, { style: { marginTop: '2vh' } }, React.createElement('li', {}, React.createElement('span', {}, [content.home.contactMeText.replace('{email}', ''), email_anchor, content.home.contactMeText.split('{email}')[1] || ''])));
+    let contact_me_row = React.createElement(Row, { style: { marginTop: '2vh' } }, React.createElement('li', {}, React.createElement('span', {}, [content.home.contactMePrefix, email_anchor, content.home.contactMeSuffix])));
     overviewDetails_rows.push(contact_me_row);
 
     return (

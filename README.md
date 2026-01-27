@@ -1,4 +1,4 @@
-# Getting Started with Your Portolio
+# Getting Started with Your Portfolio
 
 ## Editing Content
 
