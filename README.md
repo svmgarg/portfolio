@@ -50,8 +50,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-### `npm run deploy` fails to minify
-Build the app and it will deploy it to github pages
+### `npm run deploy`
 
+Builds the app and deploys it to GitHub Pages using the gh-pages branch method.
+
+## Deployment
+
+This portfolio is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment workflow:
+
+1. Builds the React application
+2. Deploys the build to the `gh-pages` branch
+3. GitHub Pages serves the site from the `gh-pages` branch
+
+**Important**: Make sure GitHub Pages is enabled in your repository settings and configured to use the `gh-pages` branch as the source.
 
 Currently Deployed on - https://svmgarg.github.io/portfolio/
