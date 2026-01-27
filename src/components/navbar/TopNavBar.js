@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const TopNavBar = () => {
     const [activeSection, setActiveSection] = useState('aboutPageTracker');
     const [expanded, setExpanded] = useState(false);
-    const navRef = useRef(null);
 
     useEffect(() => {
         const observerOptions = {
@@ -52,7 +51,6 @@ const TopNavBar = () => {
 
     return (
         <Navbar 
-            ref={navRef}
             bg="dark" 
             variant="dark" 
             expand="lg" 
@@ -73,7 +71,6 @@ const TopNavBar = () => {
                                 key={link.id}
                                 onClick={() => scrollToSection(link.id)}
                                 active={activeSection === link.id}
-                                className={activeSection === link.id ? 'active' : ''}
                             >
                                 {link.label}
                             </Nav.Link>
