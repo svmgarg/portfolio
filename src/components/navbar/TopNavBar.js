@@ -6,6 +6,9 @@ const TopNavBar = () => {
     const [expanded, setExpanded] = useState(false);
 
     useEffect(() => {
+        // Configure IntersectionObserver with rootMargin to detect sections
+        // Top -20% and bottom -70% creates a detection zone in the upper portion of viewport
+        // This ensures sections are marked active when they enter the top 30% of the screen
         const observerOptions = {
             root: null,
             rootMargin: '-20% 0px -70% 0px',
