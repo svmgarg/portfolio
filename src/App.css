@@ -65,3 +65,10 @@
 .navbar .nav-link:hover {
   color: #bd5d38 !important;
 }
+
+/* Scroll tracker for IntersectionObserver */
+.scroll-tracker {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
