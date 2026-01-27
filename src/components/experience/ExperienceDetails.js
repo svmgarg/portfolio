@@ -1,43 +1,104 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 
 class ExperienceDetails extends React.Component {
 
-
-
     render() {
-
         let companyExperienceDetails = [];
-        this.props.details.forEach((detail, index) => {
-            let projectDetails = [];
-            detail.projects.forEach((project, index) => {
-                let projectName = React.createElement('span', { key: project.id + "-projectName" }, project.name + " - " + project.role);
-                let responsiblityList = [];
-                project.responsiblities.forEach((responsiblity, index) => {
-                    responsiblityList.push(React.createElement('li', { key: responsiblity.id }, responsiblity.value));
+        
+        this.props.details.forEach((detail, companyIndex) => {
+            let projectCards = [];
+            
+            detail.projects.forEach((project, projectIndex) => {
+                let projectName = React.createElement('h5', { 
+                    key: `${detail.id}-project-${project.id}-name`,
+                    style: { color: '#bd5d38', marginBottom: '1rem' }
+                }, project.name);
+                
+                let projectRole = React.createElement('h6', {
+                    key: `${detail.id}-project-${project.id}-role`,
+                    style: { color: '#6c757d', marginBottom: '1rem', fontWeight: 'normal' }
+                }, project.role);
+                
+                let responsibilityList = [];
+                project.responsiblities.forEach((responsiblity, respIndex) => {
+                    responsibilityList.push(
+                        React.createElement('li', { 
+                            key: `${detail.id}-project-${project.id}-resp-${responsiblity.id}`,
+                            style: { marginBottom: '0.5rem' }
+                        }, responsiblity.value)
+                    );
                 });
-                let projectDetail = React.createElement('li', { key: project.id, style: { marginBottom: '2vh' } }, [
+                
+                let projectCard = React.createElement(Card, {
+                    key: `${detail.id}-project-${project.id}`,
+                    style: { 
+                        marginBottom: '1.5rem',
+                        border: 'none',
+                        borderLeft: '3px solid #bd5d38',
+                        paddingLeft: '1.5rem',
+                        backgroundColor: 'transparent'
+                    }
+                }, React.createElement(Card.Body, { style: { padding: '0' } }, [
                     projectName,
-                    React.createElement('ul', { key: project.id + "-responsiblityList", type: "circle" }, responsiblityList)
-                ]);
-                projectDetails.push(projectDetail);
+                    projectRole,
+                    React.createElement('ul', { 
+                        key: `${detail.id}-project-${project.id}-list`,
+                        style: { paddingLeft: '1.5rem' }
+                    }, responsibilityList)
+                ]));
+                
+                projectCards.push(projectCard);
             });
 
-            let companyName = React.createElement(Col, {}, React.createElement('span', { key: detail.id + "-companyName", style: { fontSize: "1.5rem" } }, detail.companyName));
-            let duration = React.createElement(Col, { key: detail.id + "-duration", style: { textAlign: "end" } }, React.createElement('span', { key: index }, detail.from + " to " + detail.to));
-            let companyExperienceDetail = React.createElement('li', { key: detail.id, style: { marginBottom: '4vh' } },
-                [
-                    React.createElement(Row, { style: { width: '100%' } }, [companyName, duration]),
-                    React.createElement(Row, {}, [React.createElement('ul', { key: detail.id + "-projectDetails", type: "disc" }, projectDetails)])
-                ])
-            companyExperienceDetails.push(companyExperienceDetail);
+            let companyHeader = React.createElement(Row, {
+                key: `${detail.id}-header`,
+                style: { marginBottom: '1.5rem' }
+            }, [
+                React.createElement(Col, {
+                    key: `${detail.id}-name-col`,
+                    xs: 12,
+                    md: 7
+                }, React.createElement('h4', { 
+                    style: { 
+                        fontSize: '1.8rem',
+                        fontWeight: 'bold',
+                        marginBottom: '0'
+                    }
+                }, detail.companyName)),
+                React.createElement(Col, {
+                    key: `${detail.id}-duration-col`,
+                    xs: 12,
+                    md: 5,
+                    style: { textAlign: 'right' }
+                }, React.createElement('span', { 
+                    style: { 
+                        fontSize: '1.1rem',
+                        color: '#6c757d',
+                        fontStyle: 'italic'
+                    }
+                }, detail.from + " - " + detail.to))
+            ]);
+
+            let companySection = React.createElement('div', {
+                key: `company-${detail.id}`,
+                style: { 
+                    marginBottom: '3rem',
+                    padding: '2rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    borderRadius: '8px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }
+            }, [
+                companyHeader,
+                React.createElement('div', { key: `${detail.id}-projects` }, projectCards)
+            ]);
+            
+            companyExperienceDetails.push(companySection);
         });
 
-        return (
-
-            React.createElement('ul', { type: "square" }, companyExperienceDetails)
-
-        );
+        return React.createElement('div', {}, companyExperienceDetails);
     }
 }
+
 export default ExperienceDetails

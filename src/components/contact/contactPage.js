@@ -34,46 +34,40 @@ class ContactPage extends React.Component {
 
 
   render() {
-    const contactPageStyle = {
-      minHeight: '100vh',
-      width: '100%',
-      padding: '4%'
-    };
-
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '0vh' };
-    const subheadingStyle = { fontSize: '1.4rem', marginBottom: '0vh' };
-    let headerTag = React.createElement('span', { style: headerTextStyle }, content.contact.heading);
-    let contactMeifyou = React.createElement('span', { style: subheadingStyle }, content.contact.subheading);
+    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
+    const subheadingStyle = { fontSize: '1.4rem', marginBottom: '1rem' };
+    let headerTag = React.createElement('span', { style: headerTextStyle, key: 'contact-header' }, content.contact.heading);
+    let contactMeifyou = React.createElement('span', { style: subheadingStyle, key: 'contact-subheader' }, content.contact.subheading);
     let contactMeConditions = content.contact.conditions;
     let contactMeConditionsElements = [];
-    contactMeConditions.forEach(condition => {
-      contactMeConditionsElements.push(React.createElement('li', {}, condition));
+    contactMeConditions.forEach((condition, index) => {
+      contactMeConditionsElements.push(React.createElement('li', { key: `condition-${index}` }, condition));
     });
     var self = this;
 
 
     return (
 
-      React.createElement('div', { style: contactPageStyle },
+      React.createElement('div', { className: 'page-section', id: 'contactPageSection', key: 'contactPageSection' },
         [
-          React.createElement('div', { className: 'scroll-tracker', id: 'contactPageTracker' }),
-          React.createElement(Container, {}, [
-            React.createElement(Row, { style: { marginBottom: '3vh' } }, headerTag),
-            React.createElement(Row, { style: { marginBottom: '3vh' } },
-              React.createElement(Container, {}, [
-                React.createElement(Row, { style: { marginBottom: '2vh' } }, contactMeifyou),
-                React.createElement(Row, {}, React.createElement('ul', {}, contactMeConditionsElements)),
+          React.createElement('div', { className: 'scroll-tracker', id: 'contactPageTracker', key: 'contactPageTracker' }),
+          React.createElement(Container, { key: 'contact-container' }, [
+            React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-header-row' }, headerTag),
+            React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-intro' },
+              React.createElement(Container, { key: 'contact-intro-container' }, [
+                React.createElement(Row, { style: { marginBottom: '1rem' }, key: 'contact-intro-header' }, contactMeifyou),
+                React.createElement(Row, { key: 'contact-conditions' }, React.createElement('ul', { key: 'conditions-list' }, contactMeConditionsElements)),
               ])
             ),
 
-            React.createElement(Row, { style: { marginBottom: '3vh' } },
-              React.createElement(RB.Form, {}, [
-                React.createElement(RB.Form.Group, { style: { fontSize: '1.2rem' } }, [
-                  React.createElement(RB.Form.Label, {}, content.contact.formLabel),
-                  React.createElement(RB.Form.Control, {  style: {  "backgroundColor" : "aliceblue"}, as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
-                  React.createElement(RB.Form.Label, { style: { fontSize: '0.8rem', float: 'right' } }, content.contact.characterCountLabel.replace('{count}', this.state.message != null ? this.state.message.length : 0)),
+            React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-form-row' },
+              React.createElement(RB.Form, { key: 'contact-form' }, [
+                React.createElement(RB.Form.Group, { style: { fontSize: '1.2rem' }, key: 'form-group' }, [
+                  React.createElement(RB.Form.Label, { key: 'form-label' }, content.contact.formLabel),
+                  React.createElement(RB.Form.Control, { key: 'form-control', style: { "backgroundColor": "aliceblue" }, as: 'textarea', size: 'lg', cols: 100, rows: 5, value: self.state.message, onChange: self.messageChanged.bind(self) }),
+                  React.createElement(RB.Form.Label, { key: 'char-count', style: { fontSize: '0.8rem', float: 'right' } }, content.contact.characterCountLabel.replace('{count}', this.state.message != null ? this.state.message.length : 0)),
                 ]),
-                React.createElement(RB.Form.Group, {}, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self) }, content.contact.buttonLabel)),
+                React.createElement(RB.Form.Group, { key: 'form-button-group' }, React.createElement(Button, { type: 'submit', onClick: self.onSubmit.bind(self), key: 'submit-button' }, content.contact.buttonLabel)),
               ])
             )
           ]

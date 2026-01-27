@@ -7,21 +7,24 @@ const TopNavBar = () => {
     const [expanded, setExpanded] = useState(false);
 
     useEffect(() => {
-        // Configure IntersectionObserver with rootMargin to detect sections
-        // Top -20% and bottom -70% creates a detection zone in the upper portion of viewport
-        // This ensures sections are marked active when they enter the top 30% of the screen
+        // Configure IntersectionObserver with adjusted margins for better scroll tracking
+        // Using navbar height (56px) + small buffer for detection zone
         const observerOptions = {
             root: null,
-            rootMargin: '-20% 0px -70% 0px',
+            rootMargin: '-60px 0px -60% 0px',
             threshold: 0
         };
 
         const observerCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
-            });
+            // Sort entries by their position to ensure we get the topmost visible section
+            const visibleEntries = entries.filter(entry => entry.isIntersecting);
+            if (visibleEntries.length > 0) {
+                // Get the entry with the smallest boundingClientRect.top (closest to top)
+                const topEntry = visibleEntries.reduce((prev, curr) => {
+                    return prev.boundingClientRect.top < curr.boundingClientRect.top ? prev : curr;
+                });
+                setActiveSection(topEntry.target.id);
+            }
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);

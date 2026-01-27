@@ -44,11 +44,12 @@
 /* Navbar styles */
 #contentPane {
   width: 100%;
-  padding-top: 56px; /* Height of navbar to prevent content from hiding behind fixed navbar */
+  padding-top: 0; /* Remove padding as we'll use scroll-margin on sections */
 }
 
 .navbar {
   z-index: 1030;
+  height: 56px;
 }
 
 .navbar .nav-link.active {
@@ -68,7 +69,45 @@
 
 /* Scroll tracker for IntersectionObserver */
 .scroll-tracker {
+  position: absolute;
+  top: 0;
   height: 1px;
   width: 100%;
   pointer-events: none;
+}
+
+/* Page sections with proper spacing for fixed navbar */
+.page-section {
+  position: relative;
+  scroll-margin-top: 56px;
+  padding-top: 56px;
+  min-height: 100vh;
+  width: 100%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+}
+
+/* HR separator styles */
+hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #bd5d38, transparent);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    padding: 0.3rem 0.8rem !important;
+  }
 }

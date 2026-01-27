@@ -16,21 +16,20 @@ class App extends React.Component {
 
   render() {
 
-    return (React.createElement('div', { onScroll: this.onScroll, className: 'app' },
+    return (React.createElement('div', { onScroll: this.onScroll, className: 'app', key: 'app' },
 
-      React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' } },
+      React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' }, key: 'main-container' },
         [
-          React.createElement(TopNavBar),
-          React.createElement('div', { id: "contentPane", style: {  "backgroundColor" : "antiquewhite"
-          } },
+          React.createElement(TopNavBar, { key: 'navbar' }),
+          React.createElement('div', { id: "contentPane", style: { "backgroundColor": "antiquewhite" }, key: 'content-pane' },
             [
-              React.createElement(AboutPage),
-              React.createElement('hr'),
-              React.createElement(ExperiencePage),
-              React.createElement('hr'),
-              React.createElement(SkillsPage),
-              React.createElement('hr'),
-              React.createElement(ContactPage)
+              React.createElement(AboutPage, { key: 'about-page' }),
+              React.createElement('hr', { key: 'hr-1' }),
+              React.createElement(ExperiencePage, { key: 'experience-page' }),
+              React.createElement('hr', { key: 'hr-2' }),
+              React.createElement(SkillsPage, { key: 'skills-page' }),
+              React.createElement('hr', { key: 'hr-3' }),
+              React.createElement(ContactPage, { key: 'contact-page' })
             ])
         ])
     ));
