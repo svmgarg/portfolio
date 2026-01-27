@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import content from '../../content';
 
 const TopNavBar = () => {
     const [activeSection, setActiveSection] = useState('aboutPageTracker');
@@ -46,10 +47,10 @@ const TopNavBar = () => {
     };
 
     const navLinks = [
-        { id: 'aboutPageTracker', label: 'About' },
-        { id: 'experiencePageTracker', label: 'Experience' },
-        { id: 'skillsPageTracker', label: 'Skills' },
-        { id: 'contactPageTracker', label: 'Contact' }
+        { id: 'aboutPageTracker', label: content.site.navigation.about },
+        { id: 'experiencePageTracker', label: content.site.navigation.experience },
+        { id: 'skillsPageTracker', label: content.site.navigation.skills },
+        { id: 'contactPageTracker', label: content.site.navigation.contact }
     ];
 
     return (
@@ -64,7 +65,7 @@ const TopNavBar = () => {
         >
             <Container fluid>
                 <Navbar.Brand href="#" onClick={(e) => { e.preventDefault(); scrollToSection('aboutPageTracker'); }}>
-                    Portfolio
+                    {content.site.brandName}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
