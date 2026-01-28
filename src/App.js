@@ -10,7 +10,11 @@ class App extends React.Component {
 
   componentDidMount() {
     window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
+      // Scroll the content container to top instead of window
+      const contentContainer = document.querySelector('.content-scroll-container');
+      if (contentContainer) {
+        contentContainer.scrollTop = 0;
+      }
     }
   }
 

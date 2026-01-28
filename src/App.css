@@ -4,10 +4,11 @@
 
 /* Main app container */
 .app {
+  --navbar-height: 56px;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden; /* Only prevent horizontal overflow */
 }
 
 /* Fixed navbar container at top */
@@ -17,13 +18,13 @@
   left: 0;
   right: 0;
   z-index: 1030;
-  height: 56px;
+  height: var(--navbar-height);
 }
 
 /* Scrollable content container */
 .content-scroll-container {
-  margin-top: 56px;
-  height: calc(100vh - 56px);
+  margin-top: var(--navbar-height);
+  height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
@@ -71,7 +72,7 @@
 /* Navbar styles */
 .navbar {
   z-index: 1030;
-  height: 56px;
+  height: var(--navbar-height, 56px);
 }
 
 #contentPane {
@@ -107,7 +108,7 @@
 /* Page sections with proper spacing for fixed navbar */
 .page-section {
   position: relative;
-  scroll-margin-top: 56px;
+  scroll-margin-top: var(--navbar-height, 56px);
   padding-top: 0;
   min-height: 100vh;
   width: 100%;
