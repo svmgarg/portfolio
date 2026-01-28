@@ -182,9 +182,4 @@ hr {
   .navbar-container .navbar-collapse.collapsing {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
-  
-  /* When navbar is expanded, push content down */
-  .navbar-container.navbar-expanded {
-    position: relative;
-  }
 }

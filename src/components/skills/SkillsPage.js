@@ -27,7 +27,6 @@ class SkillsPage extends React.Component {
                   key: 'skills-icons-row', 
                   style: { 
                     justifyContent: 'center',
-                    display: 'flex',
                     flexWrap: 'wrap',
                     gap: '1rem'
                   } 
@@ -52,7 +51,7 @@ class SkillsPage extends React.Component {
       { name: 'Docker', iconName: Icons.DiDocker },
       { name: 'Javascript', iconName: Icons.DiJavascript },
       { name: 'React', iconName: Icons.DiReact },
-      { name: 'Apache Spark', iconName: Icons.DiDatabase } // Using DiDatabase as placeholder for Spark
+      { name: 'Apache Spark', iconName: Icons.DiCode }
     ];
 
 
