@@ -85,7 +85,7 @@
 .navbar .nav-link.active {
   font-weight: bold;
   color: #bd5d38 !important;
-  border-bottom: 0.125rem solid #bd5d38; /* Changed from 2px to rem */
+  border-bottom: 2px solid #bd5d38; /* Keep as px for consistent visual element */
 }
 
 .navbar .nav-link {
@@ -101,7 +101,7 @@
 .scroll-tracker {
   position: absolute;
   top: 0;
-  height: 0.0625rem; /* Changed from 1px to rem */
+  height: 1px; /* Keep as px for consistent functional element */
   width: 100%;
   pointer-events: none;
 }
@@ -122,7 +122,7 @@
 /* HR separator styles */
 hr {
   border: 0;
-  height: 0.125rem; /* Changed from 2px to rem */
+  height: 2px; /* Keep as px for consistent visual element */
   background: linear-gradient(to right, transparent, #bd5d38, transparent);
   margin: 0;
 }
@@ -145,7 +145,7 @@ hr {
 
 /* Mobile layout for navbar - keep navbar fixed at top */
 @media (max-width: 991.98px) {
-  /* Keep the navbar fixed on mobile too */
+  /* Keep the navbar fixed on mobile */
   .navbar-container {
     position: fixed;
     top: 0;
@@ -155,20 +155,15 @@ hr {
     height: auto;
   }
   
+  .navbar-container .navbar {
+    width: 100%;
+  }
+  
   /* Adjust content container for mobile */
   .content-scroll-container {
     margin-top: var(--navbar-height);
     padding-top: 0;
     overflow-y: auto;
-  }
-  
-  /* Ensure navbar stays fixed on mobile */
-  .navbar-container .navbar {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
   }
   
   /* Make navbar collapsible content part of the navbar */
