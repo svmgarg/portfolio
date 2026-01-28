@@ -8,8 +8,6 @@ class ExperiencePage extends React.Component {
 
   render() {
 
-    let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "experiencePageTracker", key: "experiencePageTracker" });
-
     let details = this.getExperienceDetails();
 
     let experienceDetails = React.createElement(Container, { key: 'experience-container', style: { marginTop: '0' } }, 
@@ -19,7 +17,6 @@ class ExperiencePage extends React.Component {
     return (
       React.createElement('div', { className: 'page-section', id: 'experiencePageSection', key: 'experiencePageSection' },
         [
-          headingTracker,
           experienceDetails
         ]
       )

@@ -8,47 +8,59 @@ import ContactPage from './components/contact/contactPage';
 
 class App extends React.Component {
 
-  componentDidMount() {
-    window.onbeforeunload = function () {
-      // Scroll the content container to top instead of window
-      const contentContainer = document.querySelector('.content-scroll-container');
-      if (contentContainer) {
-        contentContainer.scrollTop = 0;
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 'about'
+    };
+  }
+
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+  }
+
+  renderCurrentPage() {
+    const { currentPage } = this.state;
+    
+    switch (currentPage) {
+      case 'about':
+        return React.createElement(AboutPage, { key: 'about-page' });
+      case 'experience':
+        return React.createElement(ExperiencePage, { key: 'experience-page' });
+      case 'skills':
+        return React.createElement(SkillsPage, { key: 'skills-page' });
+      case 'contact':
+        return React.createElement(ContactPage, { key: 'contact-page' });
+      default:
+        return React.createElement(AboutPage, { key: 'about-page' });
     }
   }
 
   render() {
-
     return (React.createElement('div', { className: 'app', key: 'app' },
       [
-        // First div: Fixed navbar at top
+        // Fixed navbar at top
         React.createElement('div', { className: 'navbar-container', key: 'navbar-container' },
-          React.createElement(TopNavBar, { key: 'navbar' })
+          React.createElement(TopNavBar, { 
+            key: 'navbar',
+            currentPage: this.state.currentPage,
+            onPageChange: this.handlePageChange
+          })
         ),
         
-        // Second div: Scrollable content container
-        React.createElement('div', { className: 'content-scroll-container', key: 'content-scroll-container' },
-          React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0', paddingRight: '0' }, key: 'main-container' },
-            React.createElement('div', { id: "contentPane", style: { "backgroundColor": "antiquewhite" }, key: 'content-pane' },
-              [
-                React.createElement(AboutPage, { key: 'about-page' }),
-                React.createElement('hr', { key: 'hr-1' }),
-                React.createElement(ExperiencePage, { key: 'experience-page' }),
-                React.createElement('hr', { key: 'hr-2' }),
-                React.createElement(SkillsPage, { key: 'skills-page' }),
-                React.createElement('hr', { key: 'hr-3' }),
-                React.createElement(ContactPage, { key: 'contact-page' })
-              ]
-            )
+        // Single content holder showing one page at a time
+        React.createElement('div', { className: 'content-holder', key: 'content-holder' },
+          React.createElement('div', { 
+            className: 'page-content', 
+            style: { backgroundColor: 'antiquewhite' }, 
+            key: 'page-content' 
+          },
+            this.renderCurrentPage()
           )
         )
       ]
     ));
-  };
-
-
-
+  }
 }
 
 export default App;

@@ -2,34 +2,40 @@
   text-align: center;
 }
 
-/* Main app container */
+/* Main app container using CSS Grid */
 .app {
-  --navbar-height: 3.5rem; /* Changed from 56px to rem for responsive scaling */
-  --nav-content-gap: 0; /* No gap between navbar and content */
-  display: flex;
-  flex-direction: column;
+  --navbar-height: 3.5rem;
+  display: grid;
+  grid-template-rows: var(--navbar-height) 1fr;
   height: 100vh;
-  overflow-x: hidden; /* Only prevent horizontal overflow */
+  width: 100vw;
+  overflow: hidden;
 }
 
 /* Fixed navbar container at top */
 .navbar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  grid-row: 1;
+  position: relative;
   z-index: 1030;
   height: var(--navbar-height);
 }
 
-/* Scrollable content container */
-.content-scroll-container {
-  margin-top: calc(var(--navbar-height) + var(--nav-content-gap));
-  height: calc(100vh - var(--navbar-height) - var(--nav-content-gap));
+/* Content holder - shows one page at a time */
+.content-holder {
+  grid-row: 2;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  flex: 1;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+}
+
+/* Page content wrapper */
+.page-content {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -77,62 +83,35 @@
   min-height: var(--navbar-height, 3.5rem);
 }
 
-#contentPane {
-  width: 100%;
-  padding-top: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
 .navbar .nav-link.active {
   font-weight: bold;
   color: #bd5d38 !important;
-  border-bottom: 2px solid #bd5d38; /* Keep as px for consistent visual element */
+  border-bottom: 2px solid #bd5d38;
 }
 
 .navbar .nav-link {
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 .navbar .nav-link:hover {
   color: #bd5d38 !important;
 }
 
-/* Scroll tracker for IntersectionObserver */
-.scroll-tracker {
-  position: absolute;
-  top: 0;
-  height: 1px; /* Keep as px for consistent functional element */
-  width: 100%;
-  pointer-events: none;
-}
-
-/* Page sections with proper spacing for fixed navbar */
+/* Page sections */
 .page-section {
   position: relative;
-  scroll-margin-top: var(--navbar-height, 3.5rem);
-  padding-top: 0;
-  min-height: fit-content;
+  min-height: 100%;
   width: 100%;
-  padding-left: 4%;
-  padding-right: 4%;
-  padding-bottom: 4%;
-  overflow-x: hidden; /* Prevent horizontal scroll in sections */
-}
-
-/* HR separator styles */
-hr {
-  border: 0;
-  height: 2px; /* Keep as px for consistent visual element */
-  background: linear-gradient(to right, transparent, #bd5d38, transparent);
-  margin: 0;
+  padding: 2rem 4%;
+  overflow-x: hidden;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .page-section {
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 1.5rem 3%;
   }
   
   .navbar-brand {
@@ -144,15 +123,10 @@ hr {
   }
 }
 
-/* Mobile layout for navbar - keep navbar fixed at top */
+/* Mobile layout for navbar */
 @media (max-width: 991.98px) {
-  /* Keep the navbar fixed on mobile */
   .navbar-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030;
+    position: relative;
     height: auto;
   }
   
@@ -160,21 +134,12 @@ hr {
     width: 100%;
   }
   
-  /* Adjust content container for mobile - add space for expanded navbar */
-  .content-scroll-container {
-    margin-top: var(--navbar-height);
-    padding-top: 0;
-    overflow-y: auto;
-  }
-  
-  /* Make navbar collapsible content push down the page content */
   .navbar-container .navbar-collapse {
     position: relative;
-    background-color: rgba(52, 58, 64, 0.95); /* Match navbar dark background with transparency */
+    background-color: rgba(52, 58, 64, 0.95);
     z-index: 1029;
   }
   
-  /* Add shadow to dropdown on mobile */
   .navbar-container .navbar-collapse.show,
   .navbar-container .navbar-collapse.collapsing {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

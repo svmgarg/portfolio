@@ -24,11 +24,6 @@ class AboutPage extends React.Component {
     const telegramLink = content.home.socialLinks.telegram;
     const githubLink = content.home.socialLinks.github;
 
-
-    let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "aboutPageTracker", key: "aboutPageTracker" });
-
-
-
     let socialLinks = [linkedinProfileUrl, stackoverFlowUrl, telegramLink, githubLink];
     let socialIcons = [];
     socialLinks.forEach((link, index) => {
@@ -69,7 +64,6 @@ class AboutPage extends React.Component {
 
     return (
       React.createElement('div', { className: 'page-section', style: defaultTextStyle, id: 'aboutPageSection', key: 'aboutPageSection' }, [
-        headingTracker,
         React.createElement(Container, { key: 'about-container' }, [
           firstName_lastName_row,
           email_row,
