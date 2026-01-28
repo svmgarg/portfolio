@@ -59,13 +59,25 @@ class ExperienceDetails extends React.Component {
                     key: `${detail.id}-name-col`,
                     xs: 12,
                     md: 7
-                }, React.createElement('h4', { 
-                    style: { 
-                        fontSize: '1.8rem',
-                        fontWeight: 'bold',
-                        marginBottom: '0'
-                    }
-                }, detail.companyName)),
+                }, [
+                    React.createElement('h4', { 
+                        key: `${detail.id}-company-name`,
+                        style: { 
+                            fontSize: '1.8rem',
+                            fontWeight: 'bold',
+                            marginBottom: '0.3rem'
+                        }
+                    }, detail.companyName),
+                    detail.designation ? React.createElement('h6', {
+                        key: `${detail.id}-designation`,
+                        style: {
+                            fontSize: '1.2rem',
+                            color: '#6c757d',
+                            fontWeight: '500',
+                            marginBottom: '0'
+                        }
+                    }, detail.designation) : null
+                ]),
                 React.createElement(Col, {
                     key: `${detail.id}-duration-col`,
                     xs: 12,
