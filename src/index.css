@@ -2,9 +2,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overscroll-behavior: none;
   font-family: 'Oswald', sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll on body */
+  /* Removed overscroll-behavior: none to allow normal mobile scrolling */
 }
 
 html {
@@ -19,13 +19,15 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-/* Scroll snap for smooth page-to-page transitions */
-#contentPane {
-  scroll-snap-type: y proximity;
-}
+/* Scroll snap for smooth page-to-page transitions - disabled on mobile */
+@media (min-width: 769px) {
+  #contentPane {
+    scroll-snap-type: y proximity;
+  }
 
-.page-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  .page-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
 }
 
