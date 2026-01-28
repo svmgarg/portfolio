@@ -100,7 +100,7 @@ class SkillsPage extends React.Component {
             key: `skill-name-${index}` 
           }, iconDetail.name)
         ])
-      ));
+      );
     });
 
 
