@@ -2,6 +2,33 @@
   text-align: center;
 }
 
+/* Main app container */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fixed navbar container at top */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  height: 56px;
+}
+
+/* Scrollable content container */
+.content-scroll-container {
+  margin-top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -42,20 +69,15 @@
 }
 
 /* Navbar styles */
-.navbar-spacer {
+.navbar {
+  z-index: 1030;
   height: 56px;
-  width: 100%;
 }
 
 #contentPane {
   width: 100%;
   padding-top: 0;
   overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.navbar {
-  z-index: 1030;
-  height: 56px;
 }
 
 .navbar .nav-link.active {

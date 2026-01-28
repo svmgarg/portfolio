@@ -21,7 +21,7 @@ html::-webkit-scrollbar {
 
 /* Scroll snap for smooth page-to-page transitions - disabled on mobile */
 @media (min-width: 769px) {
-  #contentPane {
+  .content-scroll-container {
     scroll-snap-type: y proximity;
   }
 
