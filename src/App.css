@@ -4,7 +4,7 @@
 
 /* Main app container */
 .app {
-  --navbar-height: 56px;
+  --navbar-height: 3.5rem; /* Changed from 56px to rem for responsive scaling */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -73,7 +73,7 @@
 /* Navbar styles */
 .navbar {
   z-index: 1030;
-  min-height: var(--navbar-height, 56px);
+  min-height: var(--navbar-height, 3.5rem);
 }
 
 #contentPane {
@@ -85,7 +85,7 @@
 .navbar .nav-link.active {
   font-weight: bold;
   color: #bd5d38 !important;
-  border-bottom: 2px solid #bd5d38;
+  border-bottom: 2px solid #bd5d38; /* Keep as px for consistent visual element */
 }
 
 .navbar .nav-link {
@@ -101,7 +101,7 @@
 .scroll-tracker {
   position: absolute;
   top: 0;
-  height: 1px;
+  height: 1px; /* Keep as px for consistent functional element */
   width: 100%;
   pointer-events: none;
 }
@@ -109,7 +109,7 @@
 /* Page sections with proper spacing for fixed navbar */
 .page-section {
   position: relative;
-  scroll-margin-top: var(--navbar-height, 56px);
+  scroll-margin-top: var(--navbar-height, 3.5rem);
   padding-top: 0;
   min-height: 100vh;
   width: 100%;
@@ -122,7 +122,7 @@
 /* HR separator styles */
 hr {
   border: 0;
-  height: 2px;
+  height: 2px; /* Keep as px for consistent visual element */
   background: linear-gradient(to right, transparent, #bd5d38, transparent);
   margin: 0;
 }
@@ -143,34 +143,42 @@ hr {
   }
 }
 
-/* Mobile flexbox layout for navbar - allows content to be pushed down */
+/* Mobile layout for navbar - keep navbar fixed at top */
 @media (max-width: 991.98px) {
-  .app {
-    height: auto;
-    min-height: 100vh;
-  }
-  
+  /* Keep the navbar fixed on mobile */
   .navbar-container {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
     height: auto;
-    flex-shrink: 0;
   }
   
-  .content-scroll-container {
-    margin-top: 0;
-    height: auto;
-    min-height: calc(100vh - var(--navbar-height));
-    overflow-y: visible;
-  }
-  
-  /* Ensure navbar uses flexbox and takes space */
   .navbar-container .navbar {
-    position: relative !important;
-    height: auto;
+    width: 100%;
   }
   
-  /* Make navbar collapsible content part of the flow */
+  /* Adjust content container for mobile */
+  .content-scroll-container {
+    margin-top: var(--navbar-height);
+    padding-top: 0;
+    overflow-y: auto;
+  }
+  
+  /* Make navbar collapsible content part of the navbar */
   .navbar-container .navbar-collapse {
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #343a40; /* Match navbar dark background */
+    z-index: 1029;
+  }
+  
+  /* Add shadow to dropdown on mobile */
+  .navbar-container .navbar-collapse.show,
+  .navbar-container .navbar-collapse.collapsing {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
 }

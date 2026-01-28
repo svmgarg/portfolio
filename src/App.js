@@ -29,7 +29,7 @@ class App extends React.Component {
         
         // Second div: Scrollable content container
         React.createElement('div', { className: 'content-scroll-container', key: 'content-scroll-container' },
-          React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' }, key: 'main-container' },
+          React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0', paddingRight: '0' }, key: 'main-container' },
             React.createElement('div', { id: "contentPane", style: { "backgroundColor": "antiquewhite" }, key: 'content-pane' },
               [
                 React.createElement(AboutPage, { key: 'about-page' }),

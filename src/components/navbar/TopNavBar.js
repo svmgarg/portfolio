@@ -8,7 +8,7 @@ const TopNavBar = () => {
 
     useEffect(() => {
         // Configure IntersectionObserver with adjusted margins for better scroll tracking
-        // Using navbar height (56px) + small buffer for detection zone
+        // Using navbar height (3.5rem ≈ 56px) + small buffer for detection zone
         const observerOptions = {
             root: null,
             rootMargin: '-60px 0px -60% 0px',
