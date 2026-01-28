@@ -5,7 +5,7 @@
 /* Main app container */
 .app {
   --navbar-height: 3.5rem; /* Changed from 56px to rem for responsive scaling */
-  --nav-content-gap: 1rem; /* Gap between navbar and content */
+  --nav-content-gap: 0; /* No gap between navbar and content */
   display: flex;
   flex-direction: column;
   height: 100vh;

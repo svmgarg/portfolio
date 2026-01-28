@@ -19,7 +19,7 @@ class SkillsPage extends React.Component {
       React.createElement('div', { className: 'page-section', id: 'skillsPageSection', key: 'skillsPageSection' },
         [
           React.createElement('div', { className: 'scroll-tracker', id: 'skillsPageTracker', key: 'skillsPageTracker' }),
-          React.createElement(Container, { key: 'skills-container' },
+          React.createElement(Container, { key: 'skills-container', style: { marginTop: '0' } },
             React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-content' },
               React.createElement(Container, { key: 'skills-inner-container' }, [
                 React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'skills-subheader-row' }, programmingLanguageAndToolsTag),
@@ -51,12 +51,33 @@ class SkillsPage extends React.Component {
       { name: 'Docker', iconName: Icons.DiDocker },
       { name: 'Javascript', iconName: Icons.DiJavascript },
       { name: 'React', iconName: Icons.DiReact },
-      { name: 'Apache Spark', iconName: Icons.DiCode }
+      { name: 'Apache Spark', iconName: null, customIcon: true }
     ];
 
 
     let iconList = [];
-    iconDetails.forEach((iconDetail, index) =>
+    iconDetails.forEach((iconDetail, index) => {
+      let iconElement;
+      if (iconDetail.customIcon) {
+        // Use the custom Apache Spark logo
+        iconElement = React.createElement('img', {
+          src: '/apache-spark-logo.svg',
+          alt: iconDetail.name,
+          style: {
+            width: iconSize,
+            height: iconSize,
+            marginBottom: '0.5rem'
+          },
+          key: `skill-icon-${index}`
+        });
+      } else {
+        iconElement = React.createElement(iconDetail.iconName, { 
+          size: iconSize, 
+          key: `skill-icon-${index}`,
+          style: { marginBottom: '0.5rem' }
+        });
+      }
+      
       iconList.push(
         React.createElement('div', { 
           style: { 
@@ -68,11 +89,7 @@ class SkillsPage extends React.Component {
           }, 
           key: `skill-${index}` 
         }, [
-          React.createElement(iconDetail.iconName, { 
-            size: iconSize, 
-            key: `skill-icon-${index}`,
-            style: { marginBottom: '0.5rem' }
-          }),
+          iconElement,
           React.createElement('p', { 
             style: { 
               fontSize: '1.2rem', 
@@ -84,6 +101,7 @@ class SkillsPage extends React.Component {
           }, iconDetail.name)
         ])
       ));
+    });
 
 
     return iconList;
