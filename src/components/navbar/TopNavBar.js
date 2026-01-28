@@ -1,59 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import content from '../../content';
 
-const TopNavBar = () => {
-    const [activeSection, setActiveSection] = useState('aboutPageTracker');
+const TopNavBar = ({ currentPage, onPageChange }) => {
     const [expanded, setExpanded] = useState(false);
 
-    useEffect(() => {
-        // Configure IntersectionObserver with adjusted margins for better scroll tracking
-        // Using navbar height (3.5rem ≈ 56px) + small buffer for detection zone
-        const observerOptions = {
-            root: null,
-            rootMargin: '-60px 0px -60% 0px',
-            threshold: 0
-        };
-
-        const observerCallback = (entries) => {
-            // Sort entries by their position to ensure we get the topmost visible section
-            const visibleEntries = entries.filter(entry => entry.isIntersecting);
-            if (visibleEntries.length > 0) {
-                // Get the entry with the smallest boundingClientRect.top (closest to top)
-                const topEntry = visibleEntries.reduce((prev, curr) => {
-                    return prev.boundingClientRect.top < curr.boundingClientRect.top ? prev : curr;
-                });
-                setActiveSection(topEntry.target.id);
-            }
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        const trackers = document.querySelectorAll('.scroll-tracker');
-        trackers.forEach((tracker) => {
-            observer.observe(tracker);
-        });
-
-        return () => {
-            trackers.forEach((tracker) => {
-                observer.unobserve(tracker);
-            });
-        };
-    }, []);
-
-    const scrollToSection = (trackerId) => {
-        const element = document.getElementById(trackerId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    const handleNavClick = (page) => {
+        onPageChange(page);
         setExpanded(false);
     };
 
     const navLinks = [
-        { id: 'aboutPageTracker', label: content.site.navigation.about },
-        { id: 'experiencePageTracker', label: content.site.navigation.experience },
-        { id: 'skillsPageTracker', label: content.site.navigation.skills },
-        { id: 'contactPageTracker', label: content.site.navigation.contact }
+        { id: 'about', label: content.site.navigation.about },
+        { id: 'experience', label: content.site.navigation.experience },
+        { id: 'skills', label: content.site.navigation.skills },
+        { id: 'contact', label: content.site.navigation.contact }
     ];
 
     return (
@@ -61,13 +22,12 @@ const TopNavBar = () => {
             bg="dark" 
             variant="dark" 
             expand="lg" 
-            fixed="top"
             expanded={expanded}
             onToggle={setExpanded}
             className="shadow"
         >
             <Container fluid>
-                <Navbar.Brand href="#" onClick={(e) => { e.preventDefault(); scrollToSection('aboutPageTracker'); }}>
+                <Navbar.Brand href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>
                     {content.site.brandName}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-nav" />
@@ -76,8 +36,8 @@ const TopNavBar = () => {
                         {navLinks.map((link) => (
                             <Nav.Link
                                 key={link.id}
-                                onClick={() => scrollToSection(link.id)}
-                                active={activeSection === link.id}
+                                onClick={() => handleNavClick(link.id)}
+                                active={currentPage === link.id}
                             >
                                 {link.label}
                             </Nav.Link>

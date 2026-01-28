@@ -18,7 +18,6 @@ class SkillsPage extends React.Component {
 
       React.createElement('div', { className: 'page-section', id: 'skillsPageSection', key: 'skillsPageSection' },
         [
-          React.createElement('div', { className: 'scroll-tracker', id: 'skillsPageTracker', key: 'skillsPageTracker' }),
           React.createElement(Container, { key: 'skills-container', style: { marginTop: '0' } },
             React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-content' },
               React.createElement(Container, { key: 'skills-inner-container' }, [
