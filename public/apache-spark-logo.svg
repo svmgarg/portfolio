@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E25A1C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F68D2E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Lightning bolt shape representing Apache Spark -->
+  <path d="M 100 20 L 70 80 L 90 80 L 60 140 L 120 90 L 100 90 L 130 30 Z" 
+        fill="url(#sparkGradient)" 
+        stroke="#C94A16" 
+        stroke-width="2"/>
+  <!-- Circle background -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#sparkGradient)" stroke-width="3" opacity="0.3"/>
+</svg>

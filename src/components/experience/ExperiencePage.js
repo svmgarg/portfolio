@@ -12,7 +12,7 @@ class ExperiencePage extends React.Component {
 
     let details = this.getExperienceDetails();
 
-    let experienceDetails = React.createElement(Container, { key: 'experience-container', style: { marginTop: '2rem' } }, 
+    let experienceDetails = React.createElement(Container, { key: 'experience-container', style: { marginTop: '0' } }, 
       React.createElement(ExperienceDetails, { details: details, key: 'experience-details' })
     )
 

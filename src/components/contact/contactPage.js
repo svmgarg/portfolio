@@ -49,7 +49,7 @@ class ContactPage extends React.Component {
       React.createElement('div', { className: 'page-section', id: 'contactPageSection', key: 'contactPageSection' },
         [
           React.createElement('div', { className: 'scroll-tracker', id: 'contactPageTracker', key: 'contactPageTracker' }),
-          React.createElement(Container, { key: 'contact-container' }, [
+          React.createElement(Container, { key: 'contact-container', style: { marginTop: '0' } }, [
             React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'contact-intro' },
               React.createElement(Container, { key: 'contact-intro-container' }, [
                 React.createElement(Row, { style: { marginBottom: '1rem' }, key: 'contact-intro-header' }, contactMeifyou),
