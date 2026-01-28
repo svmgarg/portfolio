@@ -21,6 +21,7 @@ class App extends React.Component {
       React.createElement('div', { className: 'container-fluid', style: { paddingLeft: '0px', paddingRight: '0px' }, key: 'main-container' },
         [
           React.createElement(TopNavBar, { key: 'navbar' }),
+          React.createElement('div', { className: 'navbar-spacer', key: 'navbar-spacer' }),
           React.createElement('div', { id: "contentPane", style: { "backgroundColor": "antiquewhite" }, key: 'content-pane' },
             [
               React.createElement(AboutPage, { key: 'about-page' }),

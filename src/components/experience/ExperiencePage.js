@@ -1,25 +1,20 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import ExperienceDetails from './ExperienceDetails'
-import content from '../../content';
 
 class ExperiencePage extends React.Component {
 
 
 
   render() {
-    const headerTextStyle = { fontSize: '3rem', marginBottom: '2rem', fontWeight: 'bold' };
-
 
     let headingTracker = React.createElement('div', { className: "scroll-tracker", id: "experiencePageTracker", key: "experiencePageTracker" });
 
     let details = this.getExperienceDetails();
 
-    let experienceDetails = React.createElement(Container, { key: 'experience-container' }, [
-      React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'experience-header-row' }, 
-        React.createElement('span', { style: headerTextStyle, key: 'experience-header' }, content.experience.heading)),
+    let experienceDetails = React.createElement(Container, { key: 'experience-container' }, 
       React.createElement(ExperienceDetails, { details: details, key: 'experience-details' })
-    ])
+    )
 
     return (
       React.createElement('div', { className: 'page-section', id: 'experiencePageSection', key: 'experiencePageSection' },
