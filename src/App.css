@@ -5,6 +5,7 @@
 /* Main app container */
 .app {
   --navbar-height: 3.5rem; /* Changed from 56px to rem for responsive scaling */
+  --nav-content-gap: 1rem; /* Gap between navbar and content */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -23,8 +24,8 @@
 
 /* Scrollable content container */
 .content-scroll-container {
-  margin-top: var(--navbar-height);
-  height: calc(100vh - var(--navbar-height));
+  margin-top: calc(var(--navbar-height) + var(--nav-content-gap));
+  height: calc(100vh - var(--navbar-height) - var(--nav-content-gap));
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
@@ -74,6 +75,9 @@
 .navbar {
   z-index: 1030;
   min-height: var(--navbar-height, 3.5rem);
+  background-color: transparent !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #contentPane {
@@ -159,20 +163,17 @@ hr {
     width: 100%;
   }
   
-  /* Adjust content container for mobile */
+  /* Adjust content container for mobile - add space for expanded navbar */
   .content-scroll-container {
     margin-top: var(--navbar-height);
     padding-top: 0;
     overflow-y: auto;
   }
   
-  /* Make navbar collapsible content part of the navbar */
+  /* Make navbar collapsible content push down the page content */
   .navbar-container .navbar-collapse {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #343a40; /* Match navbar dark background */
+    position: relative;
+    background-color: rgba(52, 58, 64, 0.95); /* Match navbar dark background with transparency */
     z-index: 1029;
   }
   
@@ -180,5 +181,10 @@ hr {
   .navbar-container .navbar-collapse.show,
   .navbar-container .navbar-collapse.collapsing {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* When navbar is expanded, push content down */
+  .navbar-container.navbar-expanded {
+    position: relative;
   }
 }

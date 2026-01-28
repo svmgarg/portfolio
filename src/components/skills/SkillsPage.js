@@ -23,7 +23,15 @@ class SkillsPage extends React.Component {
             React.createElement(Row, { style: { marginBottom: '3rem' }, key: 'skills-content' },
               React.createElement(Container, { key: 'skills-inner-container' }, [
                 React.createElement(Row, { style: { marginBottom: '2rem' }, key: 'skills-subheader-row' }, programmingLanguageAndToolsTag),
-                React.createElement(Row, { key: 'skills-icons-row', style: { justifyContent: 'center' } }, iconList),
+                React.createElement(Row, { 
+                  key: 'skills-icons-row', 
+                  style: { 
+                    justifyContent: 'center',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '1rem'
+                  } 
+                }, iconList),
               ])
             )
           )
@@ -43,16 +51,38 @@ class SkillsPage extends React.Component {
       { name: 'GIT', iconName: Icons.DiGit },
       { name: 'Docker', iconName: Icons.DiDocker },
       { name: 'Javascript', iconName: Icons.DiJavascript },
-      { name: 'React', iconName: Icons.DiReact }
+      { name: 'React', iconName: Icons.DiReact },
+      { name: 'Apache Spark', iconName: Icons.DiDatabase } // Using DiDatabase as placeholder for Spark
     ];
 
 
     let iconList = [];
     iconDetails.forEach((iconDetail, index) =>
       iconList.push(
-        React.createElement('div', { style: { margin: '2vh' }, key: `skill-${index}` }, [
-          React.createElement(iconDetail.iconName, { size: iconSize, key: `skill-icon-${index}` }),
-          React.createElement('p', { style: { fontSize: '1.5rem', textAlign: 'center' }, key: `skill-name-${index}` }, iconDetail.name)
+        React.createElement('div', { 
+          style: { 
+            margin: '2vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            minWidth: '120px'
+          }, 
+          key: `skill-${index}` 
+        }, [
+          React.createElement(iconDetail.iconName, { 
+            size: iconSize, 
+            key: `skill-icon-${index}`,
+            style: { marginBottom: '0.5rem' }
+          }),
+          React.createElement('p', { 
+            style: { 
+              fontSize: '1.2rem', 
+              textAlign: 'center',
+              margin: '0',
+              fontWeight: '500'
+            }, 
+            key: `skill-name-${index}` 
+          }, iconDetail.name)
         ])
       ));
 
