@@ -19,7 +19,6 @@
   right: 0;
   z-index: 1030;
   height: var(--navbar-height);
-  flex-shrink: 0;
 }
 
 /* Scrollable content container */
@@ -160,9 +159,8 @@ hr {
   .content-scroll-container {
     margin-top: 0;
     height: auto;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - var(--navbar-height));
     overflow-y: visible;
-    flex: 1;
   }
   
   /* Ensure navbar uses flexbox and takes space */
