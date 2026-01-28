@@ -8,6 +8,12 @@ import ContactPage from './components/contact/contactPage';
 
 class App extends React.Component {
 
+  // Navbar height offset for scroll detection
+  static NAVBAR_OFFSET = 100;
+  
+  // Throttle delay for scroll events (ms)
+  static SCROLL_THROTTLE_DELAY = 100;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,31 +26,50 @@ class App extends React.Component {
       skills: React.createRef(),
       contact: React.createRef()
     };
+    this.contentHolderElement = null;
+    this.scrollThrottleTimer = null;
   }
 
   componentDidMount() {
     // Add scroll listener to detect which section is in view
     if (this.contentHolderRef.current) {
-      this.contentHolderRef.current.addEventListener('scroll', this.handleScroll);
+      this.contentHolderElement = this.contentHolderRef.current;
+      this.contentHolderElement.addEventListener('scroll', this.handleScrollThrottled);
     }
   }
 
   componentWillUnmount() {
-    // Clean up scroll listener
-    if (this.contentHolderRef.current) {
-      this.contentHolderRef.current.removeEventListener('scroll', this.handleScroll);
+    // Clean up scroll listener and any pending throttle timer
+    if (this.scrollThrottleTimer) {
+      clearTimeout(this.scrollThrottleTimer);
     }
+    if (this.contentHolderElement) {
+      this.contentHolderElement.removeEventListener('scroll', this.handleScrollThrottled);
+    }
+  }
+
+  handleScrollThrottled = () => {
+    // Throttle scroll events to improve performance
+    if (this.scrollThrottleTimer) {
+      return;
+    }
+    
+    this.scrollThrottleTimer = setTimeout(() => {
+      this.handleScroll();
+      this.scrollThrottleTimer = null;
+    }, App.SCROLL_THROTTLE_DELAY);
   }
 
   handleScroll = () => {
     const contentHolder = this.contentHolderRef.current;
     if (!contentHolder) return;
 
-    // Get the scroll position
-    const scrollPosition = contentHolder.scrollTop + 100; // Offset for navbar
+    // Get the scroll position with navbar offset
+    const scrollPosition = contentHolder.scrollTop + App.NAVBAR_OFFSET;
 
     // Check which section is currently in view
-    const sections = ['about', 'experience', 'skills', 'contact'];
+    // Iterate in reverse order to find the topmost visible section
+    const sections = Object.keys(this.sectionRefs);
     for (let i = sections.length - 1; i >= 0; i--) {
       const section = sections[i];
       const sectionElement = this.sectionRefs[section].current;
