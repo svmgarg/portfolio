@@ -126,8 +126,12 @@
 /* Mobile layout for navbar */
 @media (max-width: 991.98px) {
   .navbar-container {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: auto;
+    z-index: 1030;
   }
   
   .navbar-container .navbar {
