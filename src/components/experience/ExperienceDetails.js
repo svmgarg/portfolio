@@ -35,7 +35,7 @@ class ExperienceDetails extends React.Component {
                     style: { 
                         marginBottom: '1.5rem',
                         border: 'none',
-                        borderLeft: '3px solid #bd5d38',
+                        borderLeft: '0.1875rem solid #bd5d38', /* Changed from 3px to rem */
                         paddingLeft: '1.5rem',
                         backgroundColor: 'transparent'
                     }
@@ -86,8 +86,8 @@ class ExperienceDetails extends React.Component {
                     marginBottom: '3rem',
                     padding: '2rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                    borderRadius: '8px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                    borderRadius: '0.5rem', /* Changed from 8px to rem */
+                    boxShadow: '0 0.125rem 0.25rem rgba(0,0,0,0.1)' /* Changed from px to rem */
                 }
             }, [
                 companyHeader,
