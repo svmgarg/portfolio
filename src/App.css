@@ -28,6 +28,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  flex: 1;
 }
 
 .App-logo {
@@ -72,7 +73,7 @@
 /* Navbar styles */
 .navbar {
   z-index: 1030;
-  height: var(--navbar-height, 56px);
+  min-height: var(--navbar-height, 56px);
 }
 
 #contentPane {
@@ -139,5 +140,37 @@ hr {
   
   .nav-link {
     padding: 0.3rem 0.8rem !important;
+  }
+}
+
+/* Mobile flexbox layout for navbar - allows content to be pushed down */
+@media (max-width: 991.98px) {
+  .app {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .navbar-container {
+    position: relative;
+    height: auto;
+    flex-shrink: 0;
+  }
+  
+  .content-scroll-container {
+    margin-top: 0;
+    height: auto;
+    min-height: calc(100vh - var(--navbar-height));
+    overflow-y: visible;
+  }
+  
+  /* Ensure navbar uses flexbox and takes space */
+  .navbar-container .navbar {
+    position: relative !important;
+    height: auto;
+  }
+  
+  /* Make navbar collapsible content part of the flow */
+  .navbar-container .navbar-collapse {
+    position: relative;
   }
 }
