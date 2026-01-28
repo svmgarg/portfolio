@@ -102,10 +102,16 @@
 /* Page sections */
 .page-section {
   position: relative;
-  min-height: 100%;
+  min-height: calc(100vh - var(--navbar-height));
   width: 100%;
   padding: 2rem 4%;
   overflow-x: hidden;
+  border-bottom: 2px solid #bd5d38;
+}
+
+/* Remove border from last section */
+.page-section:last-child {
+  border-bottom: none;
 }
 
 /* Responsive adjustments */
