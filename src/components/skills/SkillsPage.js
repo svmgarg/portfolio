@@ -68,6 +68,10 @@ class SkillsPage extends React.Component {
             height: iconSize,
             marginBottom: '0.5rem'
           },
+          onError: (e) => {
+            e.target.style.display = 'none';
+            console.error('Failed to load Apache Spark logo');
+          },
           key: `skill-icon-${index}`
         });
       } else {
