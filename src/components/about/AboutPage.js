@@ -8,6 +8,8 @@ class AboutPage extends React.Component {
 
 
   render() {
+    // HMR test: this console.log helps verify hot reload in dev
+    if (process.env.NODE_ENV === 'development') console.log('AboutPage render (HMR check)');
     const defaultTextStyle = { fontSize: '1.3rem' };
 
     const headerTextStyle = { fontSize: '5rem', marginBottom: '0vh' };
@@ -18,6 +20,8 @@ class AboutPage extends React.Component {
     const firstName = content.home.firstName;
     const lastName = content.home.lastName;
     const resumeLink = content.home.resumeLink;
+    const publicUrl = (process.env.PUBLIC_URL && process.env.PUBLIC_URL !== '') ? process.env.PUBLIC_URL : '';
+    const resumeHref = publicUrl ? `${publicUrl.replace(/\/$/, '')}/${resumeLink}` : `/${resumeLink}`;
 
     const linkedinProfileUrl = content.home.socialLinks.linkedin;
     const stackoverFlowUrl = content.home.socialLinks.stackoverflow;
@@ -43,7 +47,7 @@ class AboutPage extends React.Component {
     ]);
 
     let resume_link_row = React.createElement(Row, { style: { marginBottom: '10vh' }, key: 'resume-row' }, [
-      React.createElement('span', { key: 'resume-span' }, React.createElement(SafeAnchor, { href: resumeLink, target: "_blank", key: 'resume-link' }, content.home.resumeLinkLabel)),
+      React.createElement('span', { key: 'resume-span' }, React.createElement('a', { href: resumeHref, target: "_blank", rel: "noopener noreferrer", key: 'resume-link' }, content.home.resumeLinkLabel)),
     ]);
 
     let overviewDetails = this.getOverviewDetails();
