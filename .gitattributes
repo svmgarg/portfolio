@@ -1,0 +1,2 @@
+# Ensure generated JSON files use LF to avoid CRLF conversion issues during gh-pages deploy
+*.json text eol=lf
